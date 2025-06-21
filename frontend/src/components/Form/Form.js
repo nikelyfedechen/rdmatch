@@ -25,6 +25,11 @@ function Form({
     }
   };
 
+  const isFormInvalid =
+    formData.selectedPreferences.length === 0 ||
+    formData.selectedFeatures.length === 0 ||
+    !formData.selectedRecommendationType;
+
   return (
     <form
       className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md"
@@ -47,7 +52,7 @@ function Form({
           handleChange('selectedRecommendationType', selected)
         }
       />
-      <SubmitButton text="Obter recomendação" />
+      <SubmitButton text="Obter recomendação" disabled={isFormInvalid} />
     </form>
   );
 }
