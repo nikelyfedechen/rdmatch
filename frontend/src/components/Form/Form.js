@@ -19,6 +19,10 @@ function Form({
     e.preventDefault();
     const dataRecommendations = getRecommendations(formData);
     setRecommendations(dataRecommendations);
+
+    if (window.innerWidth >= 768) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
