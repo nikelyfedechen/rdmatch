@@ -18,17 +18,17 @@ function RecommendationType({ onRecommendationTypeChange }) {
       <h2 className="text-lg font-bold mb-2">Tipo de Recomendação:</h2>
       <div className="flex items-center gap-8">
         {recommendationTypes.map(({ id, label }) => (
-          <label className="flex items-center" htmlFor={id} key={id}>
-            <Checkbox
-              type="radio"
-              name="recommendationType"
-              className="mr-0"
-              id={id}
-              value={id}
-              onChange={() => onRecommendationTypeChange(id)}
-            />
+          <Checkbox
+            key={id}
+            type="radio"
+            name="recommendationType"
+            className="mr-0"
+            id={id}
+            value={id}
+            onChange={() => onRecommendationTypeChange(id)}
+          >
             {label}
-          </label>
+          </Checkbox>
         ))}
       </div>
     </div>
