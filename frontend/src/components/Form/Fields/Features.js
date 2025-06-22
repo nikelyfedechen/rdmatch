@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Checkbox from '../../shared/Checkbox';
 
 function Features({ features, selectedFeatures = [], onFeatureChange }) {
-  const [currentFeatures, setCurrentFeatures] = useState(selectedFeatures)
+  const [currentFeatures, setCurrentFeatures] = useState(selectedFeatures);
 
   const handleFeatureChange = (feature) => {
     const updatedFeatures = currentFeatures.includes(feature)
@@ -20,6 +20,7 @@ function Features({ features, selectedFeatures = [], onFeatureChange }) {
         {features.map((feature, index) => (
           <li key={index} className="mb-2">
             <Checkbox
+              id={feature}
               value={feature}
               checked={currentFeatures.includes(feature)}
               onChange={() => handleFeatureChange(feature)}
