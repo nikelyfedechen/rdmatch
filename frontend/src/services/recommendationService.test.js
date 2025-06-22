@@ -2,6 +2,14 @@ import recommendationService from './recommendation.service';
 import mockProducts from '../mocks/mockProducts';
 
 describe('recommendationService', () => {
+  test('Retorna os valores padrão de formData quando nenhum é fornecido', () => {
+    const recommendations = recommendationService.getRecommendations(
+      undefined,
+      mockProducts
+    );
+
+    expect(recommendations).toEqual([]);
+  });
   test('Retorna recomendação correta para SingleProduct com base nas preferências selecionadas', () => {
     const formData = {
       selectedPreferences: ['Integração com chatbots'],
