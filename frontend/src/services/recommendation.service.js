@@ -8,7 +8,7 @@ const getRecommendations = (
   },
   products
 ) => {
-  const matchProducts = products
+  const filteredProductsBySelections = products
     .filter((product) =>
       product.preferences.some((preference) =>
         formData.selectedPreferences.includes(preference)
@@ -21,12 +21,12 @@ const getRecommendations = (
     );
 
   if (formData.selectedRecommendationType === 'SingleProduct') {
-    return matchProducts.length > 1
-      ? [matchProducts[matchProducts.length - 1]]
-      : [matchProducts[0]];
+    return filteredProductsBySelections.length > 1
+      ? [filteredProductsBySelections[filteredProductsBySelections.length - 1]]
+      : [filteredProductsBySelections[0]];
   }
 
-  return matchProducts;
+  return filteredProductsBySelections;
 };
 
 export default { getRecommendations };
